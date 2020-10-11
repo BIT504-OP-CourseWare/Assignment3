@@ -71,7 +71,7 @@ public class Ball extends Sprite {
 			
 			// TODO: Set x to the right edge of the screen (see the above if condition)
 			// TODO: Change the x velocity to make the ball go left
-			setX(400));
+			setX(400);
 			setXVelocity(-x);
 		}
 		//==========================================================================
@@ -90,7 +90,7 @@ public class Ball extends Sprite {
 			
 			// TODO: Set y to 0 so it does not leave the screen
 			// TODO: Change the y velocity to make the ball go downward
-			setY(0));
+			setY(0);
 			setYVelocity(-y);
 		}
 		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
