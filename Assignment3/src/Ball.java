@@ -10,8 +10,10 @@ public class Ball extends Sprite {
 		setWidth(Settings.BALL_WIDTH);
 		
 		// TODO: Set width to Settings.BALL_HEIGHT. Do the same here by calling setHeight()
+		setHeight(Settings.BALL_HEIGHT);
 		
 		// TODO: Call resetPosition. Just call the resetPosition(). Straight forward!!!
+		resetPosition();
 	}
 	
 	/**
@@ -27,14 +29,11 @@ public class Ball extends Sprite {
 		
 		x = Settings.INITIAL_BALL_X;
 		
-		//or you can write
-		
-		x = setX(Settings.INITIAL_BALL_X);
-		
-		
-		
+				
 		// TODO: Set the balls y by using the INITIAL_BALL_Y (see above). Do the same here
 		//to update the y position for the Sprite class
+		y = Settings.INITIAL_BALL_Y;
+	
 	}
 	
 	public void update() {
@@ -49,7 +48,7 @@ public class Ball extends Sprite {
 		// TODO: Increase the y variable by yVelocity (see above). Do the same as above only update 
 		//the y in this case
 		
-		
+		y += yVelocity;
 		
 		//==========================================================================
 		// Bounce off left side of screen
@@ -61,6 +60,7 @@ public class Ball extends Sprite {
 			// TODO: Change the x velocity to make the ball go right
 			//Hint use setXVelocity(????) method but what value will you put between brackets
 			//what is ????. Bouncing to right, what value will make the ball go to right?
+			setXVelocity(x);
 		}
 		
 		// Bounce off right side of screen
@@ -71,6 +71,8 @@ public class Ball extends Sprite {
 			
 			// TODO: Set x to the right edge of the screen (see the above if condition)
 			// TODO: Change the x velocity to make the ball go left
+			setX(400));
+			setXVelocity(-x);
 		}
 		//==========================================================================
 		
@@ -88,6 +90,8 @@ public class Ball extends Sprite {
 			
 			// TODO: Set y to 0 so it does not leave the screen
 			// TODO: Change the y velocity to make the ball go downward
+			setY(0));
+			setYVelocity(-y);
 		}
 		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		
@@ -102,13 +106,14 @@ public class Ball extends Sprite {
 	}
 	public void setYVelocity(int y) {
 		// TODO: Set the y velocity. Do the same as above
+		yVelocity = y;
 	}
 	
 	public int getXVelocity() {
 		return xVelocity;	// TODO: Return the x velocity
 	}
 	public int getYVelocity() {
-		return 0;	// TODO: Return the y velocity. In place of 0, replace with the y velocity
+		return yVelocity;	// TODO: Return the y velocity. In place of 0, replace with the y velocity
 		            //As simple as that!!!!!!!!
 	}
 	
