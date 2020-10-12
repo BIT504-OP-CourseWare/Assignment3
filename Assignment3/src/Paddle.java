@@ -10,9 +10,12 @@ public class Paddle extends Sprite {
 		
 		// TODO: Set width to Settings.PADDLE_WIDTH
 		// TODO: Set width to Settings.PADDLE_HEIGHT
+		setWidth(Settings.PADDLE_WIDTH);
+		setHeight(Settings.PADDLE_HEIGHT);
 		
 		// TODO: Call resetPosition
 		//Just call the resetPosition() method!!!!
+		resetPosition();
 	}
 	
 	public void resetPosition() {
@@ -21,6 +24,7 @@ public class Paddle extends Sprite {
 		x = Settings.INITIAL_PADDLE_X;
 		
 		//Do now for y
+		y = Settings.INITIAL_PADDLE_Y;
 	}
 	
 	public void update() {
@@ -34,15 +38,19 @@ public class Paddle extends Sprite {
 			setX(0);
 		}
 		
-		Settings.WINDOW_WIDTH - Settings.PADDLE_WIDTH
-		Settings.WINDOW_WIDTH - Settings.PADDLE_WIDTH
+		else if (x>= Settings.WINDOW_WIDTH) {
+			setX(Settings.WINDOW_WIDTH);
+		}
+		
 		
 		//Now complete for y
-		if(x >= ???) {
-			setX(???);
+		if(y <= (0+Settings.PADDLE_HEIGHT)) {
+			setX(0+Settings.PADDLE_HEIGHT);
 		}
 		//Hint ???: use geometric calculation. The x coordinate represnts the start of the paddle that is the left part
-	
+		else if (y >= Settings.WINDOW_HEIGHT) { 
+			setY(Settings.WINDOW_HEIGHT);
+		}
 	}
 	
 	public void paint(Graphics g) {
@@ -51,6 +59,6 @@ public class Paddle extends Sprite {
 	
 	public void setXVelocity(int vel) {
 		// TODO: Set x velocity
-		xVelocity = ?; // what is ?
+		xVelocity = x; // what is ?
 	}
 }
