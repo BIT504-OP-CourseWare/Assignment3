@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
@@ -31,13 +32,15 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 		timer.start();
 		
 		// TODO: Create a new ball object and assign it to the appropriate variable
-		ball = new Ball();
+		ball = new Ball() ;
 		
 		// TODO: Create a new paddle object and assign it to the appropriate variable
 		//As with the ball, we need to create a paddle object
+		paddle = new Paddle();
+		
 		
 		// TODO: Create a new bricks array (Use Settings.TOTAL_BRICKS)
-		bricks = new Brick[?????]; //For bricks, we are creating not one object but an
+		bricks = new Brick[Settings.TOTAL_BRICKS]; //For bricks, we are creating not one object but an
 		                           //array of objects. So each brick is an object and the 
 		                           //collection of bricks objects are stored in an array
 		                           // Replace ????? with the total bricks mentioned in the 
@@ -45,7 +48,8 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 		
 		// TODO: Call the createBricks() method
 		//Just call the createBricks() becuase so far you have declared an array of objects 
-		//but have not created one. 
+		//but have not created one.
+		createBricks();
 	}
 	
 	//Look how the Bricks are created. It is one single statment that creates one single brick
@@ -94,7 +98,7 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 			// TODO: Update the ball and paddle
 			ball.update();
 			//Do the same for paddle. Note both ball and paddle have their own update methods
-			
+			paddle.update();
 			collisions();
 			repaint();
 		}
@@ -103,7 +107,7 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 	private void gameOver() {
 		// TODO: Set screen message
 		//You need to set the gameOver to true
-		
+		gameOver = true; 
 		//Then set the screen message as follows:
 		screenMessage = "Game over";
 		stopGame();
@@ -111,6 +115,8 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 	
 	private void gameWon() {
 		// TODO: Set screen message. I will not repeat this here. See the gameOver() method
+		gameOver = true;
+		screenMessage = "You Won";
 		stopGame();
 	}
 	
@@ -198,7 +204,7 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
         //??: The position in g.drawString(???) can be set using Settings.LIVES_POSITION_X
         //and Settings.LIVES_POSITION_Y
 
-        g.drawString(???,??,??);
+        g.drawString(Integer.toString(livesLeft), Settings.LIVES_POSITION_X,Settings.LIVES_POSITION_Y);
         
         // Draw screen message
         if(screenMessage != null) {
@@ -211,6 +217,13 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO: Set the velocity of the paddle depending on whether the player is pressing left or right
+		int key = e.getKeyCode();
+		if(key == KeyEvent.VK_LEFT) {
+			paddle.setXVelocity(1);
+		//Do for the right now
+		} else if(key == KeyEvent.VK_RIGHT) {
+			paddle.setXVelocity(-1);
+		}
 	}
 
 	@Override
@@ -224,8 +237,8 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 		if(key == KeyEvent.VK_LEFT) {
 			paddle.setXVelocity(-1);
 		//Do for the right now
-		} else if(???) {
-			//???
+		} else if(key == KeyEvent.VK_RIGHT) {
+			paddle.setXVelocity(1);
 		}
 	}
 
