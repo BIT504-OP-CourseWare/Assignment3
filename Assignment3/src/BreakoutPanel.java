@@ -219,10 +219,10 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 		// TODO: Set the velocity of the paddle depending on whether the player is pressing left or right
 		int key = e.getKeyCode();
 		if(key == KeyEvent.VK_LEFT) {
-			paddle.setXVelocity(1);
+			paddle.setXVelocity(-1);
 		//Do for the right now
 		} else if(key == KeyEvent.VK_RIGHT) {
-			paddle.setXVelocity(-1);
+			paddle.setXVelocity(1);
 		}
 	}
 
@@ -235,10 +235,10 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 		int key = e.getKeyCode();
 		
 		if(key == KeyEvent.VK_LEFT) {
-			paddle.setXVelocity(-1);
+			paddle.setXVelocity(0);
 		//Do for the right now
 		} else if(key == KeyEvent.VK_RIGHT) {
-			paddle.setXVelocity(1);
+			paddle.setXVelocity(0);
 		}
 	}
 

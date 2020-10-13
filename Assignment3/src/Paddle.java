@@ -38,18 +38,19 @@ public class Paddle extends Sprite {
 			setX(0);
 		}
 		
-		else if (x>= Settings.WINDOW_WIDTH) {
-			setX(Settings.WINDOW_WIDTH);
+		else if (x>= Settings.WINDOW_WIDTH-Settings.PADDLE_WIDTH) {
+			setX(Settings.WINDOW_WIDTH-Settings.PADDLE_WIDTH);
+			
 		}
 		
 		
 		//Now complete for y
-		if(y <= (0+Settings.PADDLE_HEIGHT)) {
-			setX(0+Settings.PADDLE_HEIGHT);
+		if(y <= 0) {
+			setY(0);
 		}
 		//Hint ???: use geometric calculation. The x coordinate represnts the start of the paddle that is the left part
-		else if (y >= Settings.WINDOW_HEIGHT) { 
-			setY(Settings.WINDOW_HEIGHT);
+		else if (y >= Settings.WINDOW_HEIGHT-Settings.PADDLE_HEIGHT) { 
+			setY(Settings.WINDOW_HEIGHT-Settings.PADDLE_HEIGHT);
 		}
 	}
 	
@@ -59,6 +60,6 @@ public class Paddle extends Sprite {
 	
 	public void setXVelocity(int vel) {
 		// TODO: Set x velocity
-		xVelocity = x; // what is ?
+		xVelocity = vel; // what is ?
 	}
 }

@@ -2,7 +2,7 @@ import java.awt.Graphics;
 
 public class Ball extends Sprite {
 
-	private int xVelocity = 1, yVelocity = -1;
+	private int xVelocity=1, yVelocity=-1;
 	
 	// Constructor
 	public Ball() {
@@ -54,25 +54,26 @@ public class Ball extends Sprite {
 		// Bounce off left side of screen
 		if(x <= 0) { //This means that if the x position when updated becomes -1
 			
-			// TODO: Set x to 0 so it does not leave the screen
+						// TODO: Set x to 0 so it does not leave the screen
 			setX(0);   //remember that setX() method is a Sprite class method
 			
 			// TODO: Change the x velocity to make the ball go right
 			//Hint use setXVelocity(????) method but what value will you put between brackets
 			//what is ????. Bouncing to right, what value will make the ball go to right?
-			setXVelocity(x);
+			setXVelocity(x+1);
+			
 		}
 		
 		// Bounce off right side of screen
-		if(x >= Settings.WINDOW_WIDTH - Settings.BALL_WIDTH) {
+		if(x >= Settings.WINDOW_WIDTH - (2*Settings.BALL_WIDTH)) {
 			
 			//Again as it is the case with bouncing off left, use setX and setXVelocity
 			//but with appropriate values to update
 			
 			// TODO: Set x to the right edge of the screen (see the above if condition)
 			// TODO: Change the x velocity to make the ball go left
-			setX(400);
-			setXVelocity(-x);
+			setX(x);
+			setXVelocity(-1);
 		}
 		//==========================================================================
 		
@@ -91,17 +92,20 @@ public class Ball extends Sprite {
 			// TODO: Set y to 0 so it does not leave the screen
 			// TODO: Change the y velocity to make the ball go downward
 			setY(0);
-			setYVelocity(-y);
+			setYVelocity(1);
 		}
+		else if(y >= Settings.WINDOW_HEIGHT - Settings.BALL_HEIGHT) {
+			
+			resetPosition();
 		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-		
+		}
 	}
 	
 	public void setXVelocity(int x) {
 		// TODO: Set the x velocity. How would you do this. 
 		xVelocity = x;   //Remember that xVelocity is the attribute of the Ball class
-		                 // this x is not the actual x of the Sprite class. This x is 
-		                 //only a local variable
+						// this x is not the actual x of the Sprite class. This x is 
+		                //only a local variable
 		
 	}
 	public void setYVelocity(int y) {
@@ -113,6 +117,7 @@ public class Ball extends Sprite {
 		return xVelocity;	// TODO: Return the x velocity
 	}
 	public int getYVelocity() {
+
 		return yVelocity;	// TODO: Return the y velocity. In place of 0, replace with the y velocity
 		            //As simple as that!!!!!!!!
 	}
