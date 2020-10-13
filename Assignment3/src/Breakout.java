@@ -13,12 +13,12 @@ public class Breakout extends JFrame{
 		//Here you need to set various visualization parameters
 		
 		// 1) TODO: Set the size of the screen (use Settings.WINDOW_WIDTH/HEIGHT)
-		setSize(Settings.WINDOW_WIDTH, Settings.WINDOW_HEIGHT)
+		setSize(Settings.WINDOW_WIDTH, Settings.WINDOW_HEIGHT);
 		
 		// 2) TODO: Set the title. You should be able to do this easily
-		
+		setTitle(Settings.WINDOW_NAME);
 		// TODO: Set the background colour to white
-		setBackground(?????);  //See the Settings .java to see what colour parameter to use
+		setBackground(Color.WHITE);  //See the Settings .java to see what colour parameter to use
 		
 		// TODO: Set resizable to false
 		setResizable(false);
